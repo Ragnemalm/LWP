@@ -1,0 +1,109 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf480
+{\fonttbl\f0\fswiss\fcharset77 Helvetica-Bold;\f1\fswiss\fcharset77 Helvetica;\f2\fnil\fcharset77 LucidaGrande;
+\f3\fnil\fcharset77 LucidaGrande-Bold;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11904\paperh16836\margl1440\margr1440\vieww11820\viewh13980\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\b\fs28 \cf0 About the Lightweight IDE source-code\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f1\b0\fs24 \cf0 \
+This file is provided as a help for anyone who tries to navigate in the Lightweight IDE source-code.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f2 \cf0 \
+
+\f3\b BuildWithC.p\
+BuildWithJava.p\
+BuildWithPascal.p\
+BuildWithShellScript.p\
+
+\f2\b0 \
+These units are the interfaces to the compilers. BuildWithPascal also contains the bundle builder, used for building both C and Pascal programs. The shell script runner is pretty unnecessary, not very useful. I might ditch it. It remains simply because it takes no space at all in the GUI, and little in the code. Also, the unit includes the much more important makefile runner.\
+\
+
+\f3\b AlertsUtils.p\
+TXNUtilities.p\
+cprocintf.pas\
+ProcessUtils.p\
+LittleLeopardReader.p\
+FileNameUtils.p\
+CustomTXNUnit.p\
+UtilsTypes.p\
+SkelView.p\
+QDCG.p\
+
+\f2\b0 These units are utility units, mainly for reusable code. ProcessUtils is the most important one (and the one that was most challenging to write), a pretty nice launcher/runner of other programs. LittleLeopardReader is its helper to work around a serious bug in Leopard (10.5).  CustomTXNUnit.p implements the customization callbacks for TXN/MLTE that makes it possible to add line numbers and more.\
+\
+Note that some of these units may move out of the Lightweight IDE source folder since they are reusable and should go in the folder for reusable code. This is particularly true for ProcessUtils, CustomTXNUnit, SkelView and QDCG.\
+\
+
+\f3\b termios.p\
+cprocintf.p
+\f2\b0 \
+These two units are interfaces into standard Unix libraries.\
+\
+
+\f3\b ColorCoding.p\
+ColorGlobals.p\
+IncludeAnalyzer.p\
+
+\f2\b0 These units implement specific features. ColorCoding applies color coding (with separate code for each language), ColorGlobals defines the colors in the predefined color schemes.\
+\
+
+\f3\b LWPGlobals.p\
+
+\f2\b0 The globals file, used by many others. It contains constants as well as variables. Global variables should not be overused, but using globals for central things gives simplicity.\
+\
+
+\f3\b Settings.p\
+LWPEdit.p\
+LWPHelp.p\
+FindReplaceDialog.p\
+AboutWindowUnit.p\
+ErrorMessageWindow.p\
+
+\f2\b0 These files hold most of the graphical user interface. Each of these units handle a specific window or kind of window. LWPHelp is not a help window at all but the message window.\
+\
+
+\f3\b Lightbugs.p\
+Breakpoint.p
+\f2\b0 \
+These files implement the debugger.\
+\
+
+\f3\b Lightweight-IDE.p\
+
+\f2\b0 Main program. Handles the global commands, the Run menu in particular. (Run might be moved to a separate unit in the future.)\
+\
+
+\f3\b Lightweight-IDE.rsrc\
+Lightweight-IDE.icns\
+Lightweight-IDE.nib\
+
+\f2\b0 These files are resource files.\
+\
+
+\f3\b TransSkel4, ViewManager.p:\
+
+\f2\b0 TransSkel is an application framework for simplifying event processing, menu and window handling and controls. It is not located in the source folder, but comes in the demos folder, and is expected to be in the folder for reusable code. See its documentation for more information.\
+\
+\
+
+\f3\b\fs28 \ul How to build\
+
+\f2\b0\fs24 \ulnone \
+Open LightweightIDE.p in Lightweight IDE (close enough to default settings, with TransSkel and ViewManager in the search paths). Select "Build".\
+\
+\
+
+\f3\b\fs26 \ul Also in this folder\
+
+\f2\b0\fs24 \ulnone \
+In this folder, you will (unless I reorganize and forget to change here) also find the source to two utility programs: QuickRef and RunH2Pas.\
+\
+QuickRef is a kind of Think Ref replacement, which searches for functions in FPCMacOSAll.pas. (Should be replaced by MacOSAll.pas.) It is really, really fast but only searches function names. Might be extended in the future for searching variables and types.\
+\
+RunH2Pas is a very simple wrapper around the h2pas command-line program for converting C headers to Pascal interfaces. This might be useful for comfortably converting C headers without the Terminal, and with more security for the output. (It avoids overwriting existing files.) It should probably have some support for h2pas options to get really useful. The source-code is useful for making drag-and-drop applications.\
+}

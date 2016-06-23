@@ -1,0 +1,1 @@
+-mmacpas -XR/Developer/SDKs/MacOSX10.5.sdk -k-macosx_version_min -k10.5
