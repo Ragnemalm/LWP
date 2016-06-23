@@ -18,3 +18,4 @@ Lightweight IDE (LWP for short) is an easy-to-use application with the following
 
 That is, it does everything important that Xcode does!
 
+[Lightweight IDE](http://www.ragnemalm.se/lightweight/)
