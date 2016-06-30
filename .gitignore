@@ -1,3 +1,7 @@
+# Mac OS X stuff
 .DS_Store
+
+# LWP stuff
 Lightweight-IDE.app/Contents
 Lightweight-IDE.dSYM/Contents
+intermediate-files/

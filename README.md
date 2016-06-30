@@ -19,3 +19,9 @@ Lightweight IDE (LWP for short) is an easy-to-use application with the following
 That is, it does everything important that Xcode does!
 
 [Lightweight IDE by Ingemar Ragnemalm](http://www.ragnemalm.se/lightweight/)
+
+## Compiling LWP
+
+1) Open the main program (Lightweight-IDE.pas).
+2) Reusable code should be in search paths. The default path in LWP is set to /Developer/MyStandardUnits. Change to your own needs.
+3) Compile.
